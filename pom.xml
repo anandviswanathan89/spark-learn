@@ -1,0 +1,53 @@
+<project>
+    <!-- model version - always 4.0.0 for Maven 2.x POMs -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- project coordinates - values which uniquely identify this project -->
+    <groupId>com.anand.app</groupId>
+    <artifactId>spark-learn</artifactId>
+    <version>1.1</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <scala.binary.version>2.11</scala.binary.version>
+        <scala.version>2.11.12</scala.version>
+        <spark.version>2.4.0</spark.version>
+    </properties>
+
+    <!-- library dependencies -->
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_${scala.binary.version}</artifactId>
+            <version>${spark.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_${scala.binary.version}</artifactId>
+            <version>${spark.version}</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+    <build>
+    <sourceDirectory>src/main/scala</sourceDirectory>
+    <testSourceDirectory>src/test/scala</testSourceDirectory>
+    <plugins>
+        <plugin>
+            <groupId>org.scala-tools</groupId>
+            <artifactId>maven-scala-plugin</artifactId>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>compile</goal>
+                        <goal>testCompile</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <scalaVersion>${scala.version}</scalaVersion>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+</project>
